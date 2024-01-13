@@ -6,11 +6,6 @@ def Xn(x, n):
     return np.sin(np.pi * n * x)
 
 
-# def fn(t, n):
-#     return 2 * ((np.sin(np.pi * n) - np.pi * n * np.cos(np.pi * n)) * np.sin(t) + 2 * np.sin(np.pi * n)
-#                 - 3 * np.pi * n * np.cos(np.pi * n) + np.pi * n) / (pow(np.pi, 2) * pow(n, 2))
-
-
 def lamda_n(n):
     return pow(np.pi, 2) * pow(n, 2)
 
@@ -24,8 +19,7 @@ def Tn(t, n, k):
 
 
 def un(x, t, n):
-    k = 0
-    summary = 1 - x + x * t
+    summary = 0
     for i in range(1, n):
         if i == 4:
             summary += Xn(x, i) * Tn(t, i, 1)
@@ -41,3 +35,6 @@ for ti in t:
     u = un(x, ti, N)
     plt.plot(x, u)
     plt.show()
+
+# (0, y) = 1
+# (1, y) = y
